@@ -31,7 +31,6 @@ worker.onmessage = (e) => {
 
 // 初期化 + スキーマ作成の例
 worker.postMessage({ type: 'init', filename: '/mydb.sqlite3' });
-/*
 worker.postMessage({ type: 'exec', sql: `
   CREATE TABLE IF NOT EXISTS items(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -39,7 +38,7 @@ worker.postMessage({ type: 'exec', sql: `
     qty INTEGER NOT NULL
   );
 ` });
-*/
+
 // インポート（ファイル→OPFSへ）
 document.querySelector('#importFile').addEventListener('change', async (ev) => {
   const f = ev.target.files[0];
