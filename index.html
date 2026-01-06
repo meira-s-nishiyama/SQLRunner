@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <title>SQLite + OPFS Demo</title>
+    </head>
+    <body>
+        <h1>SQLite + OPFS（ブラウザ）</h1>
+        <!-- DBインポート用 -->
+        <input type="file" id="importFile" accept=".sqlite,.sqlite3,.db" />
+        <button id="exportBtn">DBをエクスポート</button>
+        <script defer src="./coi-serviceworker.js"></script>
+        <script defer type="module" src="./main.js"></script>
+    </body>
+</html>
