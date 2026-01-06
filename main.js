@@ -31,13 +31,6 @@ worker.onmessage = (e) => {
 
 // 初期化 + スキーマ作成の例
 worker.postMessage({ type: 'init', filename: '/mydb.sqlite3' });
-worker.postMessage({ type: 'exec', sql: `
-  CREATE TABLE IF NOT EXISTS items(
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT NOT NULL,
-    qty INTEGER NOT NULL
-  );
-` });
 
 // インポート（ファイル→OPFSへ）
 document.querySelector('#importFile').addEventListener('change', async (ev) => {
@@ -46,6 +39,17 @@ document.querySelector('#importFile').addEventListener('change', async (ev) => {
   const buf = await f.arrayBuffer();
   // Workerに送り、OPFS上に書き込ませる（転送コスト対策でTransfer使用）
   worker.postMessage({ type: 'import-db', filename: '/mydb.sqlite3', bytes: buf }, [buf]);
+});
+
+// DB初期化
+document.querySelector('#btn_init').addEventListener('click', () => {
+    worker.postMessage({ type: 'exec', sql: `
+        CREATE TABLE IF NOT EXISTS items(
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL,
+            qty INTEGER NOT NULL
+        );
+    ` });
 });
 
 // エクスポート（OPFS上のDB→Uint8Array→ダウンロード）
