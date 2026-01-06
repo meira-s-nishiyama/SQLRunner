@@ -5,9 +5,12 @@ let sqlite3, db;
 const openDb = async (filename) => {
   sqlite3 = await sqlite3InitModule();
   console.log(sqlite3);
+/*
   db = 'opfs' in sqlite3
     ? new sqlite3.oo1.OpfsDb(filename, 'c')
     : new sqlite3.oo1.DB('/transient.sqlite3', 'ct');
+*/
+  db = new sqlite3.oo1.OpfsDb(filename, 'c')
   console.log(db);
 };
 
