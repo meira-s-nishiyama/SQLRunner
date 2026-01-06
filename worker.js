@@ -1,5 +1,5 @@
 // import sqlite3InitModule from '@sqlite.org/sqlite-wasm'; // 公式ESMラッパー
-import * from './vendor/sqlite3.mjs';
+import {} from './vendor/sqlite3.mjs';
 let sqlite3, db;
 
 const openDb = async (filename) => {
