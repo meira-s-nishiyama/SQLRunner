@@ -1,4 +1,4 @@
-import {} from "https://cdn.jsdelivr.net/npm/@sqlite.org/sqlite-wasm@3.51.1-build2/sqlite-wasm/jswasm/sqlite3.mjs"
+import {} from "./vendor/@sqlite.org/sqlite-wasm/sqlite3.mjs"
 
 let sqlite3, db;
 
