@@ -1,5 +1,7 @@
 import sqliteOrgsqliteWasm from "https://cdn.jsdelivr.net/npm/@sqlite.org/sqlite-wasm@3.51.1-build2/+esm"
 
+cosole.log("worker.js loaded.");
+
 let sqlite3, db;
 
 const openDb = async (filename) => {
