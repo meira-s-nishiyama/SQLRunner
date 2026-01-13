@@ -1,8 +1,6 @@
 // import sqliteOrgsqliteWasm from "https://cdn.jsdelivr.net/npm/@sqlite.org/sqlite-wasm@3.51.1-build2/+esm"
 import {} from "https://cdn.jsdelivr.net/npm/@sqlite.org/sqlite-wasm@3.51.1-build2/+esm"
 
-cosole.log("worker.js loaded.");
-
 let sqlite3, db;
 
 const openDb = async (filename) => {
@@ -15,6 +13,9 @@ const openDb = async (filename) => {
 };
 
 onmessage = async (e) => {
+  
+    cosole.log("worker.js called.");
+
   const { type, sql, filename, bytes } = e.data || {};
   if (type === 'init') {
     await openDb(filename ?? '/mydb.sqlite3');
