@@ -1,5 +1,4 @@
-// import sqliteOrgsqliteWasm from "https://cdn.jsdelivr.net/npm/@sqlite.org/sqlite-wasm@3.51.1-build2/+esm"
-import {} from "https://cdn.jsdelivr.net/npm/@sqlite.org/sqlite-wasm@3.51.1-build2/+esm"
+import * as sqliteOrgsqliteWasm from "https://cdn.jsdelivr.net/npm/@sqlite.org/sqlite-wasm/+esm";
 
 let sqlite3, db;
 
