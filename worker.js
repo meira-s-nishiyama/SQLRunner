@@ -3,6 +3,8 @@ import {} from "https://cdn.jsdelivr.net/npm/@sqlite.org/sqlite-wasm@3.51.1-buil
 
 let sqlite3, db;
 
+    console.log("worker.js loaded.");
+
 const openDb = async (filename) => {
   sqlite3 = await sqlite3InitModule();
   console.log(sqlite3);
@@ -14,7 +16,7 @@ const openDb = async (filename) => {
 
 onmessage = async (e) => {
   
-    cosole.log("worker.js called.");
+    console.log("worker.js called.");
 
   const { type, sql, filename, bytes } = e.data || {};
   if (type === 'init') {
